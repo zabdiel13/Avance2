@@ -57,7 +57,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CurpViewHolder
     public void onBindViewHolder(CurpViewHolder viewHolder, int position) {
         Usuario item = items.get(position);
         viewHolder.itemView.setTag(item);
-
         viewHolder.curp.setText("Curp: "+item.getUsuario());
         viewHolder.nombres.setText("Nombre: " +  item.getNombres());
         viewHolder.apellidos.setText("Apellido: " +  item.getApellidos());

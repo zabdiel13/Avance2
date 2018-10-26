@@ -21,14 +21,14 @@ public class DataBaseManagerUsuario extends DataBaseManager {
     private static final String Sexo="sexo";
     private static final String State="estado";
     public static final String Crear_Tabla = "create table " + nombre_tabla + " ("
-            + Curp + " text NOT NULL, " + Nombre + " text NOT NULL" +
-            Nombre + " text NOT NULL" + Apellidos + " text NOT NULL" +
-            Nacimiento + " text NOT NULL"+ Mes + " text NOT NULL" +
-            Year + " text NOT NULL"+ Nombre +  State + " text NOT NULL" +
+            + Curp + " text NULL," + Nombre + " text NOT NULL," +
+             Apellidos + " text NOT NULL," +
+            Nacimiento + " text NOT NULL,"+ Mes + " text NOT NULL," +
+            Year + " text NOT NULL,"+  State + "text NOT NULL," +
             Sexo + " text NOT NULL" +");";
 
-    public DataBaseManagerUsuario(Context ctx) {
-        super(ctx);
+    public DataBaseManagerUsuario(Context contexto) {
+        super(contexto);
     }
 
 
@@ -100,8 +100,11 @@ public class DataBaseManagerUsuario extends DataBaseManager {
     }
 
     @Override
-    public Usuario CargarUsuario() {
-        return null;
+    public Cursor CargarUsuario() {
+        String [] columnas= new String[]{"*"};
+
+
+        return super.getDb().query(nombre_tabla,columnas,null,null,null,null,null );
     }
 
     public Cursor cargarCursor() {
@@ -122,25 +125,23 @@ public class DataBaseManagerUsuario extends DataBaseManager {
             c=false;
         else
             c=true;
-
         return c;
 
     }
 
     public List<Usuario> getUsuarioList(){
         List<Usuario> list= new ArrayList();
-        Usuario u= CargarUsuario();
+        Cursor u= CargarUsuario();
         while (u.moveToNext()){
             Usuario usuario = new Usuario();
-            usuario.getUsuario(u.getString(0));
-            usuario.nombres(u.getString(1));
-            usuario.apellidos(u.getString(2));
-            usuario.nacimiento(u.getDouble(3));
-            usuario.mes(u.getString(4));
-            usuario.year(u.getString(5));
-            usuario.sexo(u.getString(6));
-            usuario.state(u.getDouble(7));
-            list.add(u);
+            usuario.setNombres(u.getString(1));
+            usuario.setApellidos(u.getString(2));
+            usuario.setNacimiento(u.getString(3));
+            usuario.setMes(u.getString(4));
+            usuario.setYear(u.getString(5));
+            usuario.setSexo(u.getString(6));
+            usuario.setState(u.getString(7));
+            list.add(usuario);
         }
         return list;
 

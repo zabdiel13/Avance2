@@ -9,8 +9,8 @@ public abstract class DataBaseManager {
     private SQLiteDatabase db;
 
 
-    public DataBaseManager(Context ctx) {
-        helper= new DatabaseHelper(ctx);
+    public DataBaseManager(Context contexto) {
+        helper= new DatabaseHelper(contexto);
         db=helper.getWritableDatabase();
     }
 
@@ -25,7 +25,7 @@ public abstract class DataBaseManager {
 
     abstract public void eliminar(String curp);
     abstract public void eliminarTodo();
-    abstract public Usuario CargarUsuario();
+    abstract public Cursor CargarUsuario();
     abstract Boolean compruebaRegistro(String curp);
 
 

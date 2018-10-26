@@ -31,6 +31,34 @@ public class Usuario implements Parcelable {
     public String getSexo() {return sexo; }
     public String getState() {return state; }
 
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setNacimiento(String nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
+    public void setMes(String mes) {
+        this.mes = mes;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public Usuario(){
         this.nombres = "";
         this.apellidos = "";

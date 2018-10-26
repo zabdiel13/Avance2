@@ -8,37 +8,37 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnInsertar"
+        android:id="@+id/boton_insertar"
         android:layout_weight="1"
         android:text="Insertar"
         android:onClick="Insertar"/>
 
     <Button
-        android:id="@+id/btnBorrar"
+        android:id="@+id/boton_borrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnInsertar"
+        android:layout_below="@+id/boton_insertar"
         android:layout_weight="1"
         android:text="Borrar"
         android:onClick="Borrar"/>
 
     <Button
-        android:id="@+id/btnActalizar"
+        android:id="@+id/actualizar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnBorrar"
+        android:layout_below="@+id/boton_borrar"
         android:layout_weight="1"
         android:text="Actualizar"
         android:onClick="Reciclar"/>
 
     <Button
-        android:id="@+id/btnConsulta"
+        android:id="@+id/consultar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/btnActalizar"
+        android:layout_below="@+id/actualizar"
         android:text="Consultar"
         android:onClick="Consulta"/>
 

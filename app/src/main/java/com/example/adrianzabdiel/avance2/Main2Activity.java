@@ -12,77 +12,73 @@ import java.util.List;
 
 public class Main2Activity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button btnInsertar,btnActualizar, btnBorrar,btnConsultar;
-    private DataBaseManagerUsuario managerCurso;
+    private Button mInsertar;
+    private Button mActualizar;
+    private Button mBorrar;
+    private Button mConsultar;
+    private DataBaseManagerUsuario manager;
     private RecyclerView recycler;
     private UserAdapter adapter;
     private RecyclerView.LayoutManager lManager;
-    private List<Usuario> listaItemsCursos;
+    private List<Usuario> listaItemsUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        managerCurso= new DataBaseManagerUsuario(this);
+        manager= new DataBaseManagerUsuario(this);
         adViews();
         inicializarRecicler();
     }
 
     private void adViews() {
-        btnInsertar=(Button) findViewById(R.id.btnInsertar);
-        btnInsertar.setOnClickListener(this);
-
-        btnBorrar=(Button) findViewById(R.id.btnBorrar);
-        btnBorrar.setOnClickListener(this);
-
-        btnActualizar=(Button) findViewById(R.id.btnActalizar);
-        btnActualizar.setOnClickListener(this);
-
-        btnConsultar=(Button) findViewById(R.id.btnConsulta);
-        btnConsultar.setOnClickListener(this);
+        mInsertar=(Button) findViewById(R.id.boton_insertar);
+        mInsertar.setOnClickListener(this);
+        mBorrar=(Button) findViewById(R.id.boton_borrar);
+        mBorrar.setOnClickListener(this);
+        mActualizar=(Button) findViewById(R.id.actualizar);
+        mActualizar.setOnClickListener(this);
+        mConsultar=(Button) findViewById(R.id.consultar);
+        mConsultar.setOnClickListener(this);
 
 
     }
 
     public void inicializarRecicler() {
 
-        listaItemsCursos = managerCurso.getUsuarioList();
-
+        listaItemsUsuario = manager.getUsuarioList();
+        lManager = new LinearLayoutManager(this);
         recycler = (RecyclerView) findViewById(R.id.reciclador);
         recycler.setHasFixedSize(true);
-
-        lManager = new LinearLayoutManager(this);
         recycler.setLayoutManager(lManager);
-        adapter = new UserAdapter(listaItemsCursos, this);
+        adapter = new UserAdapter(listaItemsUsuario, this);
         recycler.setAdapter(adapter);
         recycler.setItemAnimator(new DefaultItemAnimator());
 
     }
 
     public void Insertar(View view){
-        managerCurso.insertar_parametros("Curp: ", "Nombre: ", "Apellido ","Fecha de nacimiento",
+        manager.insertar_parametros("Curp: ", "Nombre: ", "Apellido ","Fecha de nacimiento",
                 " ", " ", "Sexo: ", "Entidad: ");
     }
     public void Borrar(View view){
-        managerCurso.eliminarTodo();
+        manager.eliminarTodo();
     }
     public void Reciclar(View view){
         int i=0;
-        managerCurso.actualizar_parametros(listaItemsCursos.get(i).getUsuario(), "Nombre: "+i, "Apellido "+i,"Fecha de nacimiento",
+        manager.actualizar_parametros(listaItemsUsuario.get(i).getUsuario(), "Nombre: "+i, "Apellido "+i,"Fecha de nacimiento",
                 " ", " ", "Sexo: ", "Entidad: ");
     }
     public void Consulta(View view) {
 
-        listaItemsCursos = managerCurso.getUsuarioList();
-        adapter = new UserAdapter(listaItemsCursos, this);
+        listaItemsUsuario = manager.getUsuarioList();
+        adapter = new UserAdapter(listaItemsUsuario, this);
         recycler.setAdapter(adapter);
         recycler.setItemAnimator(new DefaultItemAnimator());
     }
 
     protected void onDestroy() {
-
-        managerCurso.cerrar();
-
+        manager.cerrar();
         super.onDestroy();
     }
 
