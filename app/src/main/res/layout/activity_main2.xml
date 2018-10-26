@@ -24,21 +24,10 @@
         android:onClick="Borrar"/>
 
     <Button
-        android:id="@+id/actualizar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/boton_borrar"
-        android:layout_weight="1"
-        android:text="Actualizar"
-        android:onClick="Reciclar"/>
-
-    <Button
         android:id="@+id/consultar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/actualizar"
         android:text="Consultar"
         android:onClick="Consulta"/>
 

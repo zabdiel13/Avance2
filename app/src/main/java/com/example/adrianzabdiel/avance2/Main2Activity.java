@@ -1,5 +1,6 @@
 package com.example.adrianzabdiel.avance2;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -36,8 +37,6 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         mInsertar.setOnClickListener(this);
         mBorrar=(Button) findViewById(R.id.boton_borrar);
         mBorrar.setOnClickListener(this);
-        mActualizar=(Button) findViewById(R.id.actualizar);
-        mActualizar.setOnClickListener(this);
         mConsultar=(Button) findViewById(R.id.consultar);
         mConsultar.setOnClickListener(this);
 
@@ -58,23 +57,16 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     }
 
     public void Insertar(View view){
-        manager.insertar_parametros("Curp: ", "Nombre: ", "Apellido ","Fecha de nacimiento",
-                " ", " ", "Sexo: ", "Entidad: ");
+        onBackPressed();
     }
     public void Borrar(View view){
         manager.eliminarTodo();
     }
-    public void Reciclar(View view){
-        int i=0;
-        manager.actualizar_parametros(listaItemsUsuario.get(i).getUsuario(), "Nombre: "+i, "Apellido "+i,"Fecha de nacimiento",
-                " ", " ", "Sexo: ", "Entidad: ");
-    }
+
     public void Consulta(View view) {
 
-        listaItemsUsuario = manager.getUsuarioList();
-        adapter = new UserAdapter(listaItemsUsuario, this);
-        recycler.setAdapter(adapter);
-        recycler.setItemAnimator(new DefaultItemAnimator());
+        Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
+        startActivity(intent);
     }
 
     protected void onDestroy() {
