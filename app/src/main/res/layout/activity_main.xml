@@ -224,19 +224,19 @@
         android:id="@+id/button"
         android:layout_width="87dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="76dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginStart="128dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="38dp"
         android:background="@drawable/pulso"
         android:text="Aceptar"
         android:textAppearance="@android:style/TextAppearance.Widget.TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.313"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.73" />
+        app:layout_constraintVertical_bias="0.95" />
 
     <Spinner
         android:id="@+id/spinner"

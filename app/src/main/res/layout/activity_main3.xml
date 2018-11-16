@@ -1,110 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Main3Activity">
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/nom"
+        android:layout_width="248dp"
+        android:layout_height="41dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="El nombre"
+        android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+        app:layout_constraintBottom_toTopOf="@+id/ap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagen"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ap"
+        android:layout_width="248dp"
+        android:layout_height="39dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="49dp"
+        android:text="El apellido"
+        android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+        app:layout_constraintBottom_toTopOf="@+id/genre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagen"
+        app:layout_constraintTop_toBottomOf="@+id/nom" />
+
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="248dp"
+        android:layout_height="38dp"
+        android:layout_above="@+id/entidad"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="8dp"
+        android:text="Genero"
+        android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+        app:layout_constraintBottom_toTopOf="@+id/entidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagen"
+        app:layout_constraintTop_toBottomOf="@+id/ap" />
+
+    <TextView
+        android:id="@+id/entidad"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="41dp"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:text="Entidad Federativa"
+        android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genre" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_above="@+id/curp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-233dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="167dp">
+
+        <TextView
+            android:id="@+id/born"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:text="Born"
+            android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="211dp" />
+
+        <TextView
+            android:id="@+id/born2"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_weight="1"
+            android:text="Born2"
+            android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="21dp" />
+
+        <TextView
+            android:id="@+id/born3"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_weight="1"
+            android:text="Born3"
+            android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="21dp" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/curp"
+        android:layout_width="427dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="233dp"
+        android:layout_weight="1"
+        android:text="curp"
+        android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <ImageView
+        android:id="@+id/imagen"
+        android:layout_width="120dp"
+        android:layout_height="116dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/gallery_thumb" />
 
-        <TextView
-            android:id="@+id/nom"
-            android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:text="El nombre"
-            android:textAppearance="@android:style/TextAppearance.Widget.TextView" />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="144dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/button2"
+        android:layout_marginEnd="33dp"
+        android:onClick="tomarFoto"
+        android:text="Tomar Foto"
+        android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525" />
 
-        <TextView
-            android:id="@+id/ap"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:text="El apellido"
-            android:textAppearance="@android:style/TextAppearance.Widget.TextView" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/listView"
+        android:layout_marginBottom="208dp"
+        android:text="ListView"
+        app:layout_constraintBottom_toTopOf="@+id/listView"
+        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/curp" />
 
-        <TextView
-            android:id="@+id/genre"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:text="Genero"
-            android:textAppearance="@android:style/TextAppearance.Widget.TextView" />
-
-        <TextView
-            android:id="@+id/entidad"
-            android:layout_width="match_parent"
-            android:layout_height="41dp"
-            android:text="Entidad Federativa"
-            android:textAppearance="@android:style/TextAppearance.Widget.TextView" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/born"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_weight="1"
-                android:text="Born"
-                android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="211dp" />
-
-            <TextView
-                android:id="@+id/born2"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_weight="1"
-                android:text="Born2"
-                android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="21dp" />
-
-            <TextView
-                android:id="@+id/born3"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_weight="1"
-                android:text="Born3"
-                android:textAppearance="@android:style/TextAppearance.Widget.TextView"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="21dp" />
-
-        </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/curp"
-            android:layout_width="427dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:text="El curp"
-            android:textAppearance="@android:style/TextAppearance.Widget.TextView" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ListView" />
-
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="368dp"
-            android:layout_height="220dp"
-            tools:ignore="MissingConstraints" />
-
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="368dp"
+        android:layout_height="194dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        tools:ignore="MissingConstraints" />
+</RelativeLayout>

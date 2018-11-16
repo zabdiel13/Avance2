@@ -1,11 +1,16 @@
 package com.example.adrianzabdiel.avance2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,6 +28,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     private RecyclerView.LayoutManager lManager;
     private List<Usuario> listaItemsUsuario;
 
+
+    public Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +71,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     }
 
     public void Consulta(View view) {
-
-        Intent intent = new Intent(Main2Activity.this, Main3Activity.class);
+        Log.d("hola", "Consulta: ");
+        Intent intent = new Intent(context,Main3Activity.class);
         startActivity(intent);
     }
 
@@ -74,6 +81,21 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         super.onDestroy();
     }
 
+    public boolean onCreateOptionMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    public boolean onCreateItemSelected(MenuItem opcion){
+        switch (opcion.getItemId()){
+            case R.id.Return:
+                finish();
+                return true;
+            default:
+                onBackPressed();
+                return true;
+        }
+    }
     @Override
     public void onClick(View v) {
 
